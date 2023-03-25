@@ -2,15 +2,24 @@ import './App.css'
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import Skills from './components/Skills';
+import Loading from './components/Loading';
 
 function App() {
   const [skills, setSkills] = useState([])
+  const [loading ,setLoading]= useState(false)
  
 
   const fetchSkills =async()=>{
-    const {data} = await axios.get('http://localhost:3000/skills')
-    // debugger;
-    setSkills(data);
+    setLoading(true)
+    try {
+       const { data } = await axios.get("http://localhost:3000/skills");
+       // debugger;
+       setSkills(data);
+       setLoading(false)
+    } catch (error) {
+      setLoading(true)
+    }
+   
     
   }
   useEffect(()=>{
@@ -20,7 +29,8 @@ function App() {
 
   return (
     <div className="App">
-      <Skills skills={skills} />
+      {loading ? (<Loading/>):(<Skills skills={skills} />)}
+      
     </div>
   );
 }
