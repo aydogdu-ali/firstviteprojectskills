@@ -1,19 +1,27 @@
 import React from 'react'
 import Skill from './Skill';
 
-const Skills = ({ skills, handleClick }) => {
+const Skills = ({ skills, handleClick, fetchSkills }) => {
   return (
-    <div>
+    <div className="skillsMainPage">
       <div>
-        <h3>Yeteneklerim</h3>
+        <h2 className='skillTitle'>Yeteneklerim</h2>
       </div>
-      <div>
-        {skills?.map((skill) => {
-          return (
-            <Skill key={skill.id} skill={skill} handleClick={handleClick} />
-          );
-        })}
-      </div>
+
+      {skills.lenght === 0 ? (
+        <div>
+          <p>Hiç Yetenekler Kalmadı</p>
+          <button onClick={fetchSkills}>Tekrar Göster</button>
+        </div>
+      ) : (
+        <div className="skill">
+          {skills?.map((skill) => {
+            return (
+              <Skill key={skill.id} skill={skill} handleClick={handleClick} />
+            );
+          })}
+        </div>
+      )}
     </div>
   );
 };

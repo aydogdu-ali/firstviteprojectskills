@@ -42,7 +42,20 @@ function App() {
       {loading ? (
         <Loading />
       ) : (
-        <Skills skills={skills} handleClick={handleClick} />
+        <>
+          {skills.length === 0 ? (
+            <div className="yineleme">
+              <h3>Hiç Yetenekler Kalmadı</h3>
+              <button className="yinelemeBtn" onClick={() => fetchSkills()}>Tekrar Göster</button>
+            </div>
+          ) : (
+            <Skills
+              skills={skills}
+              handleClick={handleClick}
+              fetchSkills={fetchSkills}
+            />
+          )}
+        </>
       )}
     </div>
   );
