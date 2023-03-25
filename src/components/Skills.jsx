@@ -1,9 +1,15 @@
 import React from 'react'
+import Skill from './Skill';
 
-const Skills = () => {
+const Skills = ({ skills }) => {
+  console.log(skills);
   return (
-    <div>Skills</div>
-  )
-}
+    <div>
+    {skills?.map((skill,id)=>{
+        return <Skill/>
+    })}  
+    </div>
+  );
+};
 
 export default Skills
