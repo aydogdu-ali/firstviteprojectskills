@@ -46,19 +46,61 @@
   position: relative;
 }
 
+.cardTitle{
+  text-align: center;
+}
+
+.cardContent{
+  margin-bottom: 2rem;
+}
+
+.btn{
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+
+}
+
+.addBtn{
+  width: 5rem;
+height: 1.8rem;
+border: none;
+background-color: rgb(21, 0, 255);
+color: white;
+border-radius: 25px;
+bottom: 20px;
+left: 20px;
+margin-top: 2rem;
+
+}
+
 .deleteBtn{
 width: 5rem;
-height: 1.2rem;
+height: 1.8rem;
 border: none;
 background-color: red;
 color: white;
 border-radius: 25px;
-position: absolute;
 bottom: 20px;
 left: 20px;
+margin-top: 2rem;
 
 }
 
+     
+.updateBtn{
+width: 5rem;
+height: 1.8rem;
+border: none;
+background-color:darkmagenta;
+color: white;
+border-radius: 25px;
+
+bottom: 20px;
+right: 20px ;
+margin-top: 2rem;
+
+}
  
 /* loading Component  css*/
 .load{
